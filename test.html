@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        const data = [2,4,5,71,1,2,3,4,5,7,10,22,0]
+
+
+        function QuickSort(data){
+
+            if(data.length <= 1) return data
+
+            let index = (data.length / 2) | 0
+
+            let value = data.splice(index,1)[0]
+
+            let left = []
+            let right = []
+
+            for(let i = 0; i < data.length; i ++){
+                if(data[i] < value){
+                    left.push(data[i])
+                }else {
+                    right.push(data[i])
+                }
+            }
+
+            return QuickSort(left).concat([value],QuickSort(right))
+
+        }
+        console.log(QuickSort(data))
+    </script>
+</body>
+</html>
